@@ -28,6 +28,13 @@
             <artifactId>http-client-jvm-okhttp</artifactId>
             <version>0.0.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.21</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -86,5 +93,10 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

@@ -1,0 +1,17 @@
+# VK-RCON Bot
+# Written by vekotov
+# Licensed under MIT License
+
+# vk data
+groupID: 12345
+token: "0fb186c5c014b6332113d586af7..."
+
+# rcon data
+rconIP: "127.0.0.1"
+rconPort: 11121
+rconPassword: "12345678"
+
+# ids of admins
+admins:
+    - 118166445
+    - 475399863
