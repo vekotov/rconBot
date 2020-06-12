@@ -20,7 +20,7 @@ fun onMessage(event : MessageNew){
     val userId = event.message.fromId
     var text = event.message.text
 
-    val regex = "[.+|@.+]+".toRegex() //regex finding references
+    val regex = "\\[\\w+\\|@\\w+]\\s".toRegex() //regex finding references
     val foundReference = regex.find(text)?.value ?: ""
 
     text = text.replace(foundReference, "") //removes refs

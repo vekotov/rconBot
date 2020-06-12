@@ -6,7 +6,7 @@
 
     <groupId>ru.crewdex</groupId>
     <artifactId>crewdexRconBot</artifactId>
-    <version>0.04</version>
+    <version>0.05</version>
 
     <properties>
         <kotlin.version>1.3.72</kotlin.version>
