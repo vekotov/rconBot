@@ -18,17 +18,25 @@ class Main {
 fun onMessage(event : MessageNew){
     val peerId = event.message.peerId
     val userId = event.message.fromId
-    println("Got message '${event.message.text}' from id '$userId'.")
-    if(isAdmin(userId)){
+    var text = event.message.text
+
+    val regex = "[.+|@.+]+".toRegex() //regex finding references
+    val foundReference = regex.find(text)?.value ?: ""
+
+    text = text.replace(foundReference, "") //removes refs
+
+    println("Got message '$text' from id '$userId'.")
+
+    if (isAdmin(userId)) {
         println("User with id '$userId' is admin.")
-        when(event.message.text){
+        when (text) {
             "банлист" -> banlist(peerId)
             "онлайни" -> usersOnline(peerId)
             "онлайн" -> online(peerId)
             "вайтлистлист" -> whitelist(peerId)
             else -> rconCommand(peerId, event.message.text)
         }
-    }else{
+    } else {
         println("User with id '$userId' is not admin!")
         sendMessage(peerId, "Вы не являетесь админом данного сервера.")
     }

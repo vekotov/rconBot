@@ -11,9 +11,9 @@ fun usersOnline(peerId: Int) {
 }
 
 fun online(peerId: Int) {
-    val text = rcon.command("list")
-    val regex = "§c\\d+".toRegex()
-    val online = regex.find(text)?.value?.replace("§c", "")?.toInt() ?: 0
+    val text = rcon.command("minecraft:list")
+    val regex = "\\d+".toRegex()
+    val online = regex.find(text)?.value?.toInt() ?: 0
     sendMessage(peerId, "Текущий онлайн - $online игроков.")
 }
 
@@ -23,6 +23,8 @@ fun whitelist(peerId: Int) {
 }
 
 fun rconCommand(peerId: Int, command: String) {
+    if (!command.startsWith("/")) return
+
     val text = rcon.command(command)
     sendMessage(peerId, text)
 }
